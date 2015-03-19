@@ -1,0 +1,157 @@
+{% extends 'base/default.html' %}
+{% block main %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+{#                <h1 class="page-header">综合查询</h1>#}
+                <p></p>
+            </div>
+        </div>
+        <div class="row form-inline media">
+            <form>
+            <div class="col-lg-4">
+                <p>
+                    <select id="car_brand" name="brand" class="form-control input-sm">
+                        <option value="">品牌</option>
+                        {% for item in brand_list %}
+                            <option value="{{ item.name }}" {% if item.name == s_brand %} selected="selected" {% endif %}>{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select id="car_series" name="series" class="form-control input-sm">
+                        <option value="">车系</option>
+                        {% for item in series_list %}
+                            <option value="{{ item.name }}" {% if item.name == s_series %} selected="selected" {% endif %}>{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select id="car_series_no" name="series_no" class="form-control input-sm">
+                        <option value="">车型</option>
+                        {% for item in series_no_list %}
+                            <option value="{{ item.name }}" {% if item.name == s_series_no %} selected="selected" {% endif %}>{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                </p>
+                <p>
+                    <select id="order_customer" name="customer" class="form-control input-sm">
+                        <option value="0">客户类型</option>
+                        {% for item in customer_list %}
+                            <option value="{{ item.id }}" {% if item.id == s_customer %} selected="selected" {% endif %}>{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="order_no">订单号 :</label>
+                    <input id="order_no" class="form-control input-sm" value="{{ s_order_no }}" placeholder="输入订单号">
+
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    VIN:<input id="car_vin" name="vin" class="form-control input-sm" value="{{ s_vin }}" placeholder="输入VIN码后6位">
+                    发动机号:<input id="car_engine_no" name="engine_no" class="form-control input-sm" value="{{ s_engine_no }}" placeholder="输入发动机号">
+                </p>
+                <p>
+                    供货编码:<input id="supplier_no" name="supplier_no" class="form-control input-sm" value="{{ s_supplier_no }}" placeholder="输入供货编码">
+                    <button type="submit" class="btn btn-info">查询</button>
+                    <a href="{% url carsales_order_list %}" class="btn btn-info">总览</a>
+                    <a href="{% url carsales_order_create %}" class="btn btn-info">新建项目</a>
+                </p>
+            </div>
+            </form>
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+{#                    <div class="panel-heading">#}
+{#                        DataTables Advanced Tables#}
+{#                    </div>#}
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>供货编码</th>
+                                    <th>品牌</th>
+                                    <th>车型</th>
+                                    <th>VIN/车架号</th>
+                                    <th>详配</th>
+                                    <th>客户类型</th>
+                                    <th>订单号</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% autopaginate orders 1 0 total_count %}
+                                {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.supplier_no }}</td>
+                                    <td>{{ order.car_type.brand }}</td>
+                                    <td>{{ order.car_type.series }}</td>
+                                    <td class="center">{{ order.vin }}</td>
+                                    <td class="center tooltip-demo">
+                                        <i class="fa fa-file-text" data-toggle="tooltip" data-placement="bottom"
+                                           title="" data-original-title="{{ order.conf_detail }}" ></i></td>
+                                    <td class="center">{{ order.customer.name }}</td>
+                                    <td class="center">{{ order.order_no }}</td>
+                                    <td class="center"><a href="{% url carsales_order_edit order.id %}">修改</a>   <a>删除</a></td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row text-center">
+                            {% paginate %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block custom_js %}
+    <script>
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        })
+
+        function init_brand_select(){
+            var option_html = '<option value="">品牌</option>';
+            var data_list = Erp.ajax.getCarBrand();
+            $.each(data_list,function(i,item){
+                option_html +='<option value="' + item.name +  '">' + item.name + '</option>';
+            })
+
+            $('#car_brand').html(option_html);
+        }
+
+        function init_series_select(brand){
+            var option_html = '<option value="">车系</option>';
+            if(brand){
+                var data_list = Erp.ajax.getCarSeries(brand);
+                $.each(data_list,function(i,item){
+                    option_html +='<option value="' + item.name +  '">' + item.name + '</option>';
+                })
+            }
+            $('#car_series').html(option_html);
+        }
+
+        function init_series_no_select(brand,series){
+            var option_html = '<option value="">车型</option>';
+            if(brand && series){
+                var data_list = Erp.ajax.getCarSeriesNo(brand,series);
+                $.each(data_list,function(i,item){
+                    option_html +='<option value="' + item.name +  '">' + item.name + '</option>';
+                })
+            }
+            $('#car_series_no').html(option_html);
+        }
+
+        $('#car_brand').change(function(){
+            init_series_select($('#car_brand').val());
+            init_series_no_select($('#car_brand').val(),$('#car_series').val());
+        })
+
+        $('#car_series').change(function(){
+            init_series_no_select($('#car_brand').val(),$('#car_series').val());
+        })
+
+    </script>
+{% endblock %}

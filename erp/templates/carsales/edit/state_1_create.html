@@ -1,0 +1,146 @@
+<tr>
+    <input type="hidden" id="no" value="{{ no }}">
+    <td>
+        <label for="car_supplier_no">供货编码：</label><input id="car_supplier_no" name="supplier_no" class="input-sm"></td>
+    <td colspan="2">供货商：
+        <select id="car_supplier" name="supplier" class="input-sm">
+            <option value="0">请选择</option>
+            {% for item in supplier_list %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+    </td>
+    <td>登记人：{{ request.user.first_name }}</td>
+</tr>
+<tr>
+    <td>客户类别：
+        <select id="car_customer" name="customer" class="input-sm">
+            <option value="0">请选择</option>
+            {% for item in customer_list %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+    </td>
+    <td>订单号码：<input type="text" id="car_order_no" class="input-sm"></td>
+    <td>座位数：<input type="number" min="0" id="car_seat_num" class="input-sm"></td>
+    <td>钥匙数量：<input type="number" min="0" id="car_key_num" class="input-sm"></td>
+</tr>
+<tr>
+    <td colspan="4">车型配置：
+        <select id="car_brand" name="brand" class="input-sm">
+            <option value="">品牌</option>
+            {% for item in brand_list %}
+                <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <select id="car_series" name="series" class="input-sm">
+            <option value="">系列</option>
+        </select>
+        <select id="car_series_no" name="series_no" class="input-sm">
+            <option value="">车型</option>
+        </select>
+        <select id="car_years" name="years" class="input-sm">
+            <option value="">年款</option>
+        </select>
+        <select id="car_conf" name="conf" class="input-sm">
+            <option value="">配置</option>
+        </select>
+        <select id="car_version" name="version" class="input-sm">
+            <option value="">版本</option>
+        </select>
+        <input type="text" id="car_color" placeholder="颜色"  class="input-sm">
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        <span class="">车型详配：</span>
+        <textarea id="car_conf_detail" rows="5" cols="150"></textarea>
+    </td>
+</tr>
+<tr>
+    <td>生产日期：
+        <input type="date" id="car_made_time" name="made_time" class="input-sm">
+    </td>
+    <td>VIN：
+        <input type="text" id="car_vin" name="vin" class="input-sm">
+    </td>
+    <td>发动机号：
+        <input type="text" id="car_engine_no" name="engine_no" class="input-sm">
+    </td>
+    <td>轮胎尺寸：
+        <input type="text" id="car_tire_size" name="tire_size" class="input-sm">
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        车价：<input id="car_price" name="price" class="input-sm">
+        <select id="car_currency" class="input-sm">
+            <option value="">币种</option>
+            {% for item in currency_list %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        当前汇率：<input type="number" min="0" step="0.1" id="car_currency_rate" name="currency_rate" class="input-sm">
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        车辆实图：<br>
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        海外定金：<input type="number" id="car_overseas_deposit" class="input-sm">
+        <select id="overseas_deposit_currency" class="input-sm">
+            <option value="">币种</option>
+            {% for item in currency_list %}
+                <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        国内定金：<input type="number" id="car_china_deposit" class="input-sm">
+        <select id="china_deposit_currency" class="input-sm">
+            <option value="">币种</option>
+            {% for item in currency_list %}
+                <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        合同金额：<input type="number" id="car_contract_money" class="input-sm">
+        <select id="contract_money_currency" class="input-sm">
+            <option value="">币种</option>
+            {% for item in currency_list %}
+                <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+    </td>
+</tr>
+<tr>
+    <td colspan="4" class="text-right">
+        <button type="submit" id="car_order_create" class="btn btn-info">创建</button>
+    </td>
+</tr>
+{% block custome_js %}
+    {{ super }}
+    <script type="text/javascript" src="/static/js/step_1_create.js"></script>
+{% endblock %}

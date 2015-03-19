@@ -1,0 +1,42 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="3">PDI检测信息登记</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="step5_pdi_time">检测时间：</label>
+                <input type="date" id="step5_pdi_time" class="input-sm" />
+            </td>
+            <td>
+                <label>检测公司：</label>
+                <select id="step5_pdi_agency">
+                    <option value="">请选择</option>
+                    {% for item in agency_list %}
+                        <option value="{{ item.id }}"{% if step5.pdi_agency_id == item.id %} selected{% endif %}>{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <label>手动报告：</label>
+                <i class="fa fa-file-o" id="step5_pdi_upload"></i>
+            </td>
+            <td>
+                <label>检测仪报告：</label>
+                <i class="fa fa-file-o" id="step5_pdi_mer_upload"></i>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label for="step5_pdi_remark">整改备注：</label><br>
+                <textarea id="step5_pdi_remark" cols="160" rows="4"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="text-right">
+                <button type="button" id="state13_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

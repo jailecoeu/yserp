@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="3">PDI检测信息登记</td>
+            <td>登记人：{{ step5.pdi_registrant.first_name }}</td>
+        </tr>
+        <tr>
+            <td>
+                <label>检测时间：</label>
+                {{ step5.pdi_time }}
+            </td>
+            <td>
+                <label>检测公司：</label>
+                {{ step5.pdi_agency.name }}
+            </td>
+            <td>
+                <label>手动报告：</label>
+                <a href="#"><i class="fa fa-file-o" id="step5_pdi_upload"></i></a>
+            </td>
+            <td>
+                <label>检测仪报告：</label>
+                <a href="#"><i class="fa fa-file-o" id="step5_pdi_mer_upload"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label>整改备注：</label><br>
+                {{ step5.pdi_remark }}
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">押汇垫税登记</td>
+            <td>登记人：{{ step3.bill_registrant }}</td>
+        </tr>
+        <tr>
+            <td>押汇信息登记时间：{{ step3.bill_time }}</td>
+            <td>押汇金额：{{ step3.bill_money }}
+            </td>
+            <td>押汇代理公司：{{ step3.bill_agency }}</td>
+        </tr>
+        <tr>
+            <td>押汇协议上传：
+                <a href="#"><i class="fa fa-file-o"></i></a>
+            </td>
+            <td colspan="2">预警期：{{ step3.bill_warning_time }}</td>
+        </tr>
+        {% include 'carsales/edit/step_3_pay.html' %}
+    </tbody>
+</table>

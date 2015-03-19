@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">实际起运</td>
+            <td>登记人：{{ step3.real_registrant.first_name|default:'空' }}</td>
+        </tr>
+        <tr>
+            <td>起运港：{{ step3.port_real_start.name }}</td>
+            <td>目标港：{{ step3.port_real_end.name }}</td>
+            <td>承运公司：{{ step3.shipping_real.name }}</td>
+        </tr>
+        <tr>
+            <td>起运时间：{{ step3.time_real_start }}</td>
+            <td>提单号码：{{ step3.lading_no }}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

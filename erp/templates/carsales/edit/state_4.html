@@ -1,0 +1,42 @@
+{% with step3=car_order.step3 %}
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">实际起运</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>起运港：
+                <select id="step3_port_real_start" name="port_real_start" class="input-sm">
+                    <option value="">请选择</option>
+                </select>
+            </td>
+            <td>目标港：
+                <select id="step3_port_real_end" name="port_real_end" class="input-sm">
+                    <option value="">请选择</option>
+                </select>
+            </td>
+            <td>承运公司：
+                <select id="step3_port_real_shipping" name="port_real_shipping" class="input-sm">
+                    <option value="">请选择</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>起运时间：
+                <input type="date" id="step3_time_real_start" name="time_real_start" class="input-sm">
+            </td>
+            <td>提单号码：
+                <input type="text" id="step3_lading_no" name="lading_no" class="input-sm">
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="submit" id="state4_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endwith %}

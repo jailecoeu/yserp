@@ -1,0 +1,36 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">二次转港信息</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>目标港：
+                <select id="step4_port_second_start" class="input-sm">
+                    <option value="">请选择</option>
+                {% for item in port_list %}
+                    <option value="{{ item.id }}" {% if step4.port_start_id == item.id %} selected{% endif %}>
+                        {{ item.name }}</option>
+                {% endfor %}
+                </select>
+            </td>
+            <td>转港时间：
+                <input type="date" id="step4_port_second_time" class="input-sm"/>
+            </td>
+            <td>承运公司：
+                <select id="step4_shipping_second" class="input-sm">
+                    <option value="">请选择</option>
+                    {% for item in shipping_list %}
+                        <option value="{{ item.id }}" {% if step4.shipping_second_id == item.id %} selected{% endif %}>
+                            {{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="button" id="state6_2_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

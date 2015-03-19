@@ -1,0 +1,15 @@
+<tr>
+    <td colspan="4" style="background-color: #87ceeb;">
+        海外定金支付登记：{% if car_order.overseas_deposit_pay > 0 %}已支付{% else %}未支付{% endif %}
+        &nbsp;&nbsp;&nbsp;金额：{{ car_order.overseas_deposit_pay }}元
+        <span style="float: right">登记人：{{ car_order.deposit_pay_registrant|default:'空' }}</span>
+    </td>
+
+</tr>
+<tr>
+    <td colspan="4" style="background-color: orange;">
+        国内定金支付登记：{% if car_order.china_deposit_pay > 0 %}已支付{% else %}未支付{% endif %}
+        &nbsp;&nbsp;&nbsp;金额：{{ car_order.china_deposit_pay }}元
+        <span style="float: right">登记人：{{ car_order.deposit_pay_registrant|default:'空' }}</span>
+    </td>
+</tr>

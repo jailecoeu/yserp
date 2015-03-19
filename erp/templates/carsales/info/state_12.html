@@ -1,0 +1,44 @@
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <td colspan="2">出税登记</td>
+        <td>登记人：{{ step5.out_tax_registrant.first_name }}</td>
+    </tr>
+    <tr>
+        <td>
+            <label>金额：</label>
+            {{ step5.out_tax_money }}
+        </td>
+        <td>
+            <label>出税时间：</label>
+            {{ step5.out_tax_time }}
+        </td>
+        <td>
+            <label>税单：</label>
+            <a href="#"><i class="fa fa-file-o"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <td colspan="2">垫税登记</td>
+        <td>登记人：{{ request.user.first_name }}</td>
+    </tr>
+    <tr>
+        <td>
+            <label>代理公司：</label>
+            {{ step5.mat_tax_agency.name }}
+        </td>
+        <td>
+            <label>金额：</label>
+            {{ step5.mat_tax_money }}
+        </td>
+        <td>
+            <label>税单：</label>
+           <a href="#{{ step5.mat_tax_file }}"> <i class="fa fa-file-o" id="step5_mat_tax_upload"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>

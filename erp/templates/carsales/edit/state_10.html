@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">加装OBD登记</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="step5_obd_time">家装时间：</label>
+                <input type="date" id="step5_obd_time" class="input-sm" />
+            </td>
+            <td>
+                <label for="step_obd_no">设备号码：</label>
+                <input type="text" id="step_obd_no" />
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="button" id="state10_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

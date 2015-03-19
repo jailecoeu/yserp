@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block body %}
+    <div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        {% include 'base/top.html' %}
+        {% include 'base/left.html' %}
+    </nav>
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        {% block main %}
+
+        {% endblock %}
+    </div>
+    <!-- /#page-wrapper -->
+
+    </div>
+{% endblock %}

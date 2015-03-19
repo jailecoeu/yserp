@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">报关完成登记</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label for="step5_end_tax_time">登记时间：</label>
+                <input type="date" id="step5_end_tax_time" class="input-sm" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label for="step5_end_tax_remark">问题备注：</label><br>
+                <textarea id="step5_end_tax_remark" cols="160" rows="4"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="button" id="state14_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

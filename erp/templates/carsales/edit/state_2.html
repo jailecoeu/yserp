@@ -1,0 +1,92 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="3">开证登记</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>开证时间：
+                <input type="date" id="step2_issue_time" name="issue_time" class="input-sm" value="{{ step2.issue_time }}">
+            </td>
+            <td>开证金额：
+                <input type="number" id="step2_issue_money" name="issue_money" class="input-sm input-sm-num" value="{{ step2.issue_money }}">
+                <select id="step2_issue_money_currency" name="issue_money_currency" class="input-sm">
+                    <option value="">币种</option>
+                    {% for item in currency_list %}
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>代理公司：
+                <select id="step2_agency" name="agency" class="input-sm">
+                    <option value="">请选择</option>
+                    {% for item in agency_list %}
+                        <option value="{{ item.id }}" {% if step2.agency_id == item.id %} selected {% endif %}> {{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>预警期：
+                <input type="date" id="step2_warning_time" name="warning_time" class="input-sm" value="{{ step2.waring_time }}">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">预计总成本：
+                <input type="number" id="step2_issue_plan_money" name="issue_plan_money" class="input-sm">
+                <select id="step2_issue_plan_money_currency" name="issue_money_plan_currency" class="input-sm">
+                    <option value="">币种</option>
+                </select>
+                合同号：
+                <input type="text" id="step2_issue_file_no" name="issue_file_no" class="input-sm">
+            </td>
+        </tr>
+        <tr>
+            <td>代理费金额：
+                <input type="number" id="step2_agency_money" name="agency_money" class="input-sm">
+    {#                            <select id="step2_agency_money_currency" name="agency_money_currency" class="input-sm">#}
+    {#                                <option value="">币种</option>#}
+    {#                            </select>#}
+            </td>
+            <td>保险费金额：
+                <input type="number" id="step2_insurance_money" name="insurance_money" class="input-sm">
+    {#                            <select id="step2_insurance_money_currency" name="insurance_money_currency" class="input-sm">#}
+    {#                                <option value="">币种</option>#}
+    {#                            </select>#}
+            </td>
+            <td colspan="2">总计：
+                <input type="number" id="step2_total_money" name="total_money" class="input-sm">
+    {#                            <select id="step2_total_money_currency" name="total_money_currency" class="input-sm">#}
+    {#                                <option value="">币种</option>#}
+    {#                            </select>#}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">保证金登记</td>
+        </tr>
+        <tr>
+            <td>保证金金额：
+                <input type="number" id="step2_ensure_money" name="ensure_money" class="input-sm input-sm-num">
+                <select id="step2_ensure_money_currency" name="ensure_money_currency" class="input-sm">
+                    <option value="">币种</option>
+                </select>
+            </td>
+            <td>协议汇率：
+                1 / <input type="text" id="step2_ensure_rate" name="ensure_rate" class="input-sm input-sm-num">
+            </td>
+            <td colspan="2">保证金比例：
+                <input type="number" id="step2_ensure_percent" name="ensure_percent" class="input-sm input-sm-num">%
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="text-right">
+                <button type="submit" id="state2_save" class="btn btn-info">保存</button>
+                <input type="hidden" id="no" value="" />
+            </td>
+        </tr>
+        {% include 'carsales/edit/step_2_pay.html' %}
+    </tbody>
+</table>
+
+{% block custom_js %}
+	{{super}}
+	<script type="text/javascript" src="/static/js/state2.js" ></script>
+{% endblock %}

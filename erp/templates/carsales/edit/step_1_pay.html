@@ -1,0 +1,20 @@
+<tr class="bg-blue">
+    <td colspan="4">
+        海外定金支付登记：{% if car_order.overseas_deposit_pay > 0 %}已支付{% else %}未支付{% endif %}
+        &nbsp;&nbsp;&nbsp;金额：<input type="number" id="car_overseas_deposit_pay" class="input-sm"> 元
+        <span style="float: right">登记人：{{ request.user.first_name }}</span>
+    </td>
+
+</tr>
+<tr class="bg-orange">
+    <td colspan="4">
+        国内定金支付登记：{% if car_order.china_deposit_pay > 0 %}已支付{% else %}未支付{% endif %}
+        &nbsp;&nbsp;&nbsp;金额：<input type="number" id="car_china_deposit_pay" class="input-sm"> 元
+        <span style="float: right">登记人：{{ request.user.first_name }}</span>
+    </td>
+</tr>
+<tr>
+    <td colspan="4" class="text-right">
+        <button type="submit" id="car_deposit_pay_save" class="btn btn-info">登记</button>
+    </td>
+</tr>

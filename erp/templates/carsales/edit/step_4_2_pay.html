@@ -1,0 +1,27 @@
+<tr class="bg-blue">
+    <td >
+        <label>转港费用支付金额：</label><input type="number" min="0" id="step4_shipping_second_pay_money" class="input-sm" /> 元
+
+    </td>
+    <td>
+        <label>支付对象：</label>
+        {{ step4_shipping_second.name }}
+    </td>
+    <td>
+        <label>支付时间：</label>
+        <input type="date" id="step4_shipping_second_pay_time" class="input-sm" />
+        登记人：{{ request.user.first_name }}
+    </td>
+
+</tr>
+<tr>
+    <td colspan="3">
+        <label for="step4_shipping_second_remark">备注：</label><br>
+        <textarea id="step4_shipping_second_remark" rows="4" cols="160"></textarea>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" class="text-right">
+        <button type="submit" id="step4_pay_save" class="btn btn-info">保存</button>
+    </td>
+</tr>

@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">保税展示登记</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="step5_devanning_time">起始时间：</label>
+                <input type="date" id="step5_devanning_time" class="input-sm" />
+            </td>
+            <td>
+                <label for="step5_show_room">展厅：</label>
+                <select id="step5_show_room" class="input-sm" >
+                    <option value="">请选择</option>
+                    {% for item in showroom_list %}
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="button" id="state9_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

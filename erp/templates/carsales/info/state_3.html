@@ -1,0 +1,21 @@
+{% with step3=car_order.step3 %}
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">预计起运</td>
+            <td>登记人：{{ step3.plan_registrant.first_name }}</td>
+        </tr>
+        <tr>
+            <td>起运港：{{ step3.port_plan_start.name }}</td>
+            <td>目标港：{{ step3.port_plan_end.name }}</td>
+            <td>承运公司：{{ step3.shipping_plan.name }}</td>
+        </tr>
+        <tr>
+            <td>预计起运时间：{{ step3.time_plan }}</td>
+            <td>预计到港时间：{{ step3.time_end }}</td>
+            <td></td>
+        </tr>
+
+    </tbody>
+</table>
+{% endwith %}

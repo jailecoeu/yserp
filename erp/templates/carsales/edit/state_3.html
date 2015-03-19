@@ -1,0 +1,46 @@
+{% with step3=car_order.step3 %}
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">预计起运</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>起运港：
+                <select id="step3_port_plan_start" name="port_plan_start" class="input-sm">
+                    <option value="">请选择</option>
+                </select>
+            </td>
+            <td>目标港：
+                <select id="step3_port_plan_end" name="port_plan_end" class="input-sm">
+                    <option value="">请选择</option>
+                </select>
+            </td>
+            <td>承运公司：
+                <select id="step3_port_plan_shipping" name="port_plan_shipping" class="input-sm">
+                    <option value="">请选择</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>预计起运时间：
+                <input type="date" id="step3_time_plan_start" name="time_plan_start" class="input-sm">
+            </td>
+            <td>预计到港时间：
+                <input type="date" id="step3_time_plan_end" name="time_plan_end" class="input-sm">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="submit" id="state3_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endwith %}
+
+{% block custom_js %}
+	{{super}}
+	<script type="text/javascript" src="/static/js/state3.js" ></script>
+{% endblock %}

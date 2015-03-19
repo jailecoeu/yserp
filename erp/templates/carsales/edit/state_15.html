@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">整车尾款收取</td>
+            <td>登记人：{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label for="step5_end_real_pay_money">车款金额：</label>
+                <input type="number" id="step5_end_real_pay_money" class="input-sm" />元
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">
+                <button type="button" id="state15_save" class="btn btn-info">保存</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

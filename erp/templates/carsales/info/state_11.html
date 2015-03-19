@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">商检报关信息登记  </td>
+            <td>登记人：{{ step5.sn_registrant.first_name }}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>登记时间：</label>
+                {{ step5.sn_time }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>问题备注：</label><br>
+                {{ step5.sn_remark }}
+            </td>
+        </tr>
+    </tbody>
+</table>

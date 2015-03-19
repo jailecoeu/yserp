@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td>拆箱登记</td>
+            <td>登记人：{{ step5.devanning_registrant.first_name|default:'空' }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label>拆箱时间：</label>
+                {{ step5.devanning_time }}
+            </td>
+        </tr>
+    </tbody>
+</table>

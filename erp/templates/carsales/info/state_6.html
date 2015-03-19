@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">到港信息</td>
+            <td>登记人：{{ step4.port_registrant.first_name|default:'空' }}</td>
+        </tr>
+        <tr>
+            <td>起运港：{{ step4.port_start.name }}</td>
+            <td>目标港：{{ step4.port_end.name }}</td>
+            <td>承运公司：{{ step4.shipping.name }}</td>
+        </tr>
+        <tr>
+            <td colspan="3"><label>到港时间：</label>{{ step4.port_time }}</td>
+        </tr>
+    </tbody>
+</table>

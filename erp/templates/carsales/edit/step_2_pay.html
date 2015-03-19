@@ -1,0 +1,24 @@
+<tr class="bg-blue">
+    <td >
+        开证费用：<input type="number" min="0" id="step2_issue_pay_money" class="input-sm" /> 元
+
+    </td>
+    <td>
+        <label for="step2_issue_pay_obj">支付对象：</label>
+        <select id="step2_issue_pay_obj" class="input-sm" >
+            <option value="">请选择</option>
+        </select>
+    </td>
+    <td>
+        <label>支付时间：</label>
+        <input type="date" id="step2_issue_pay_time" class="input-sm" />
+    </td>
+    <td>
+        登记人：{{ request.user.first_name }}
+    </td>
+</tr>
+<tr>
+    <td colspan="4" class="text-right">
+        <button type="submit" id="step2_pay_save" class="btn btn-info">保存</button>
+    </td>
+</tr>

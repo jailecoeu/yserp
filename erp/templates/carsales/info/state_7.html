@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">海运费</td>
+            <td>登记人：{{ step4.shipping_money_registrant.first_name }}</td>
+        </tr>
+        <tr>
+            <td><label>付款对象：</label>
+                {{ step3.shipping_obj }}
+            </td>
+            <td><label>海运费金额：</label>{{ step4.shipping_money }}</td>
+            <td><label>转港费用：</label>{{ step4.shipping_second_money }}</td>
+        </tr>
+        {% include 'carsales/edit/step_4_pay.html' %}
+        {% include 'carsales/edit/step_4_2_pay.html' %}
+    </tbody>
+</table>

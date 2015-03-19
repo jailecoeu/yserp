@@ -1,0 +1,68 @@
+<tr>
+    <td>
+        供货编码：{{ car_order.supplier_no }}</td>
+    <td colspan="2">供货商：{{ car_order.supplier.name }}
+    </td>
+    <td>登记人：{{ request.user.first_name }}</td>
+</tr>
+<tr>
+    <td>客户类别：{{ car_order.customer.name }}</td>
+    <td>订单号码：{{ car_order.order_no }}</td>
+    <td>座位数：{{ car_order.seat_num }}</td>
+    <td>钥匙数量：{{ car_order.key_num }}</td>
+</tr>
+<tr>
+    <td colspan="4">车型配置：{{ car_order.car_type }}/{{ car_order.car_type_remark }}</td>
+</tr>
+<tr>
+    <td colspan="4">
+        <span class="">车型相配：</span>
+        {{ car_order.conf_detail }}
+    </td>
+</tr>
+<tr>
+    <td>生产日期：{{ car_order.made_time|date:'Y.m' }}</td>
+    <td>VIN：{{ car_order.vin }}</td>
+    <td>发动机号：{{ car_order.engine_no }}</td>
+    <td>轮胎尺寸：{{ car_order.tire_size }}</td>
+</tr>
+<tr>
+    <td colspan="4">
+        车价：{{ car_order.price }}{{ car_order.currency.name }}
+        &nbsp;&nbsp;&nbsp;&nbsp; 当前汇率：1/{{ car_order.rate }}
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        车辆实图：<br>
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+        <img class="" width="120" height="90" />
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        海外定金：{{ car_order.overseas_deposit }}
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        国内定金：{{ car_order.china_deposit }}
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        合同金额：{{ car_order.contract_money }}
+    </td>
+</tr>
+{#{% include 'carsales/info/step_1_pay.html' %}#}
+{% include 'carsales/edit/step_1_pay.html' %}

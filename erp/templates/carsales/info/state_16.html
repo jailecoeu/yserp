@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">进口商放行登记</td>
+            <td>登记人：{{ step5.release_registrant.first_name }}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>登记时间：</label>
+                {{ step5.release_time }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>问题备注：</label>
+                {{ step5.release_remark }}
+            </td>
+        </tr>
+    </tbody>
+</table>

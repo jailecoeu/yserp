@@ -1,0 +1,29 @@
+{% extends 'base/default.html' %}
+{% block custom_css %}
+{% endblock %}
+{% block main %}
+    <div class="container-fluid">
+        <div class="row"></div>
+        <div class="row form-inline media">
+        {% with order_state=car_order.order_state %}
+        {% with finance_state=car_order.finance_state %}
+            {% include 'carsales/step_1.html' %}
+            {% if order_state > 1 %}
+                {% include 'carsales/step_2.html' %}
+            {% endif %}
+            {% if order_state > 2 %}
+                {% include 'carsales/step_3.html' %}
+            {% endif %}
+            {% if order_state > 5 %}
+                {% include 'carsales/step_4.html' %}
+            {% endif %}
+            {% if order_state > 7 %}
+                {% include 'carsales/step_5.html' %}
+            {% endif %}
+        {% endwith %}
+        {% endwith %}
+        </div>
+    </div>
+{% endblock %}
+{% block custom_js %}
+{% endblock %}

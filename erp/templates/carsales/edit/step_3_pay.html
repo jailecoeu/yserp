@@ -1,0 +1,22 @@
+<tr class="bg-blue">
+    <td >
+        押汇费用：<input type="number" min="0" id="step3_bill_pay_money" class="input-sm" /> 元
+
+    </td>
+    <td>
+        <label for="step3_bill_pay_obj">支付对象：</label>
+        <select id="step3_bill_pay_obj" class="input-sm" >
+            <option value="">请选择</option>
+        </select>
+    </td>
+    <td>
+        <label>支付时间：</label>
+        <input type="date" id="step3_bill_pay_time" class="input-sm" />
+        登记人：{{ request.user.first_name }}
+    </td>
+</tr>
+<tr>
+    <td colspan="3" class="text-right">
+        <button type="submit" id="step3_pay_save" class="btn btn-info">保存</button>
+    </td>
+</tr>

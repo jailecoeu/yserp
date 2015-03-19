@@ -1,0 +1,35 @@
+{% with step2=car_order.step2 %}
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <td colspan="3">开证登记</td>
+        <td>登记人：{{ step2.issue_registrant.first_name|default:'空' }}</td>
+    </tr>
+    <tr>
+        <td>开证时间：{{ step2.issue_time|date:'Y年m月d日' }}</td>
+        <td>开证金额：{{ step2.issue_money }}</td>
+        <td>代理公司：{{ step2.agency.name }}</td>
+        <td>预警期：{{ step2.warning_time|default:'未设置' }}</td>
+    </tr>
+    <tr>
+        <td colspan="4">预计总成本：{{ step2.budget }}
+            合同号：{{ step2.contract_no }}
+        </td>
+    </tr>
+    <tr>
+        <td>代理费金额：{{ step2.agency_money }}</td>
+        <td>保险费金额：{{ step2.insurance_money }}</td>
+        <td colspan="2">总计：{{ step2.total_money }}</td>
+    </tr>
+    <tr>
+        <td colspan="4">保证金登记</td>
+    </tr>
+    <tr>
+        <td>保证金金额：{{ step2.ensure_money }}</td>
+        <td>协议汇率：1 / {{ step2.ensure_rate }}</td>
+        <td colspan="2">保证金比例：{{ step2.ensure_percent }}</td>
+    </tr>
+    {% include 'carsales/edit/step_2_pay.html' %}
+    </tbody>
+</table>
+{% endwith %}
